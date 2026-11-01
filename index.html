@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>灵异复苏 · 观测者网络 ｜ 全球异常事件态势图</title>
+<meta name="description" content="《神秘复苏》同人：可旋转、可缩放的三维地球，标注 52 个原著与原创灵异事件，纯静态离线可开。">
+<meta name="theme-color" content="#050e0b">
+<meta property="og:type" content="website">
+<meta property="og:title" content="灵异复苏 · 观测者网络">
+<meta property="og:description" content="可旋转的三维地球 + 52 条灵异事件档案（《神秘复苏》同人 UI）">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23061210'/%3E%3Cpath d='M16 4l10 6v12l-10 6-10-6V10z' fill='none' stroke='%237dffcd' stroke-width='1.6'/%3E%3Ccircle cx='16' cy='16' r='3.2' fill='%237dffcd'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<noscript>
+  <div style="position:fixed;inset:0;z-index:999;display:grid;place-items:center;background:#05100d;color:#c6efe2;font:14px/1.8 'Microsoft YaHei UI',sans-serif;text-align:center;padding:24px">
+    <div>本页需要 JavaScript 才能渲染地球与档案。<br>请在浏览器设置中允许 JavaScript 后刷新。</div>
+  </div>
+</noscript>
+<!-- ================= 图标库 ================= -->
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-radar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+    <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 12 19 7"/>
+  </symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+    <path d="M4 20V9M9.5 20V4M15 20v-7M20.5 20v-4"/>
+  </symbol>
+  <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+    <path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h4M9 12h6M9 16h6"/>
+  </symbol>
+  <symbol id="i-map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+    <path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>
+  </symbol>
+  <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+    <circle cx="9" cy="9" r="3.2"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/>
+    <path d="M16 7.2a3 3 0 0 1 0 5.6M18 20c0-2.2-.7-3.9-1.8-5"/>
+  </symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+    <path d="M12 3 22 20H2z"/><path d="M12 9v5M12 17v.6"/>
+  </symbol>
+  <symbol id="i-signal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+    <path d="M4 20V12M9 20V8M14 20V5M19 20v-9"/>
+  </symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+    <path d="M12 3 20 6v6c0 5-3.4 8-8 9-4.6-1-8-4-8-9V6z"/><path d="m9 12 2 2 4-4"/>
+  </symbol>
+  <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+    <circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/>
+  </symbol>
+  <symbol id="i-reply" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+    <path d="M20 15a3 3 0 0 1-3 3H9l-5 3V6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3z"/>
+  </symbol>
+  <symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+    <path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>
+  </symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+    <path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="2.8"/>
+  </symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+    <circle cx="12" cy="12" r="9"/><path d="M12 7v5.5l3.5 2"/>
+  </symbol>
+  <symbol id="i-radio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+    <circle cx="12" cy="12" r="2.5"/><path d="M6.5 6.5a7.8 7.8 0 0 0 0 11M17.5 6.5a7.8 7.8 0 0 1 0 11"/>
+  </symbol>
+  <symbol id="i-hex" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+    <path d="M12 2 21 7v10l-9 5-9-5V7z"/><path d="M12 8.5 16 11v4l-4 2.5L8 15v-4z"/>
+  </symbol>
+</svg>
+
+<!-- ================= 顶部警报 ================= -->
+<div class="ticker">
+  <div class="ticker__tag"><span class="dot"></span>S级警报 · ALERT</div>
+  <div class="ticker__track">
+    <div class="ticker__inner" id="ticker"></div>
+  </div>
+</div>
+
+<!-- ================= 顶栏 ================= -->
+<header class="topbar">
+  <div class="brand">
+    <div class="brand__mark"><svg><use href="#i-hex"/></svg></div>
+    <div class="brand__txt">
+      <b>灵异复苏 · 观测者网络</b>
+      <small>FORUM · OBSERVER NETWORK</small>
+    </div>
+  </div>
+
+  <nav class="mainnav" id="nav">
+    <a href="#/globe" data-view="globe">全球态势</a>
+    <a href="#/overview" data-view="overview">观测总览</a>
+    <a href="#/community" data-view="community">社区广场</a>
+    <a href="#/archive" data-view="archive">灵异档案</a>
+    <a href="#/profile" data-view="profile">驭鬼者档案</a>
+  </nav>
+
+  <div class="status">
+    <div class="status__item"><span class="led"></span>网络在线</div>
+    <div class="clock" id="clock">2026/11/01 周日 14:40:52</div>
+    <div class="user">
+      <div class="avatar">夜</div>
+      <div class="user__meta"><b>守夜人</b><small>Lv.5 · 观测者</small></div>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+  <!-- ================= 侧栏 ================= -->
+  <aside class="rail">
+    <div class="rail__grp">监控 <span>MONITOR</span></div>
+    <a href="#/globe" data-rail="globe" class="on"><svg><use href="#i-radar"/></svg>全球态势</a>
+    <a href="#/globe" data-rail=""><svg><use href="#i-map"/></svg>盲域雷达</a>
+    <a href="#/overview" data-rail=""><svg><use href="#i-alert"/></svg>事件警报</a>
+
+    <div class="rail__grp">统计 <span>STATISTICS</span></div>
+    <a href="#/overview" data-rail="overview"><svg><use href="#i-chart"/></svg>全球伤亡统计</a>
+
+    <div class="rail__grp">情报 <span>INTELLIGENCE</span></div>
+    <a href="#/archive" data-rail="archive"><svg><use href="#i-file"/></svg>灵异事件档案</a>
+    <a href="#/community" data-rail="community"><svg><use href="#i-radio"/></svg>社区情报</a>
+
+    <div class="rail__grp">人力 <span>PERSONNEL</span></div>
+    <a href="#/profile" data-rail="profile"><svg><use href="#i-users"/></svg>驭鬼者档案</a>
+
+    <div class="rail__grp">行动 <span>OPERATIONS</span></div>
+    <a href="#/archive" data-rail=""><svg><use href="#i-shield"/></svg>压制任务</a>
+    <a href="#/overview" data-rail=""><svg><use href="#i-signal"/></svg>幸存上报</a>
+
+    <div class="rail__foot">
+      <p>链 接 稳 定<br>延 迟 12ms<br>分 区 华 北 · 07</p>
+    </div>
+  </aside>
+
+  <!-- ================= 主区 ================= -->
+  <main class="main">
+
+    <!-- ---------- 视图：全球态势（地球） ---------- -->
+    <section class="view on" id="view-globe">
+      <div class="globe-wrap">
+        <div class="globe-vignette"></div>
+        <canvas id="globeCanvas"></canvas>
+        <canvas id="globeOverlay"></canvas>
+
+        <div class="globe-hud globe-hud--left">
+          <div class="ghd"><b>异常分布</b><span>GLOBAL ANOMALY</span><em id="globeCount">—</em></div>
+          <div class="gfilter-row" id="globeFilters"></div>
+          <div class="glist" id="globeList"></div>
+        </div>
+
+        <div class="globe-hud globe-hud--right">
+          <div class="ghd"><b>态势统计</b><span>SITUATION</span></div>
+          <div id="globeStats"></div>
+          <div class="ghd mt"><b>大洲分布</b><span>BY CONTINENT</span></div>
+          <div id="globeCont"></div>
+          <div class="ghd mt"><b>图例</b><span>LEGEND</span></div>
+          <div class="glegend">
+            <div><i style="background:#ff4a5e"></i>S 级 · 鬼域级</div>
+            <div><i style="background:#ffcf6b"></i>A 级 · 鬼将级</div>
+            <div><i style="background:#6fe3ff"></i>B 级 · 游魂级</div>
+            <div><i style="background:#7dffcd"></i>C 级 · 残响级</div>
+          </div>
+        </div>
+
+        <div class="globe-corner">
+          <b>全球态势 · 观测者网络</b>
+          <span>GLOBAL SITUATION · OBSERVER NETWORK</span>
+        </div>
+
+        <div class="globe-readout" id="globeReadout">
+          <span>LAT 30.6°N</span><span>LON 113.9°E</span><span>ZOOM 1.0×</span>
+        </div>
+
+        <div class="globe-zoom">
+          <button data-z="in" title="放大">+</button>
+          <button data-z="out" title="缩小">−</button>
+          <button data-z="reset" title="复位">⟲</button>
+        </div>
+
+        <div class="globe-tip">拖动旋转 · 滚轮缩放 · 点击标记查看档案</div>
+      </div>
+    </section>
+
+    <!-- ---------- 视图：总览 ---------- -->
+    <section class="view" id="view-overview">
+      <div class="kpis" id="kpis"></div>
+
+      <div class="grid-a">
+        <div class="panel">
+          <div class="panel__hd">
+            <div>
+              <h2>各大洲伤亡分布</h2>
+              <div class="en">BY CONTINENT · 3D LIVE</div>
+            </div>
+            <div class="spacer"></div>
+            <div class="hint">单位：万人 · 实时同步</div>
+          </div>
+          <div class="panel__bd"><div class="bars" id="bars"></div></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel__hd">
+            <div>
+              <h2>事件等级分布</h2>
+              <div class="en">BY EVENT LEVEL · ROTATABLE</div>
+            </div>
+            <div class="spacer"></div>
+            <div class="hint">活跃 75 起</div>
+          </div>
+          <div class="panel__bd">
+            <div class="donutwrap">
+              <div class="donut"></div>
+              <div class="legend" id="legend"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-b">
+        <div class="stack">
+        <div class="panel">
+          <div class="panel__hd">
+            <div>
+              <h2>历史趋势 · 近 30 天</h2>
+              <div class="en">HISTORICAL TREND · LAST 30 DAYS</div>
+            </div>
+            <div class="spacer"></div>
+            <div class="hint">每日新增 · 全球</div>
+          </div>
+          <div class="panel__bd">
+            <div class="trend" id="trend"><div class="scan"></div></div>
+            <div class="trend__axis" id="trendAxis"></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel__hd">
+            <div>
+              <h2>压制行动 · 本周</h2>
+              <div class="en">SUPPRESSION LOG · THIS WEEK</div>
+            </div>
+            <div class="spacer"></div>
+            <div class="hint">成功率 78%</div>
+          </div>
+          <div class="panel__bd" style="padding:4px 12px 8px" id="actions"></div>
+        </div>
+        </div>
+
+        <div class="stack">
+          <div class="panel">
+            <div class="panel__hd">
+              <div>
+                <h2>实时事件流</h2>
+                <div class="en">LIVE INCIDENT FEED</div>
+              </div>
+              <div class="spacer"></div>
+              <div class="status__item"><span class="led"></span>接收中</div>
+            </div>
+            <div class="panel__bd" style="padding:6px 10px"><div class="feed" id="feed"></div></div>
+          </div>
+
+          <div class="panel">
+            <div class="panel__hd">
+              <div>
+                <h2>观测档案</h2>
+                <div class="en">OBSERVATION FILE</div>
+              </div>
+            </div>
+            <div class="panel__bd" id="obsCard"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- 视图：社区广场 ---------- -->
+    <section class="view" id="view-community">
+      <div class="cm__title">
+        <h1>社区广场</h1>
+        <p>COMMUNITY PLAZA · 民间 / 故事 / 梦境 / 求助</p>
+      </div>
+
+      <div class="community">
+        <div class="cm__left">
+          <div class="tabs" id="tabs"></div>
+
+          <div class="panel newpost">
+            <div class="newpost__ttl">在「<b id="postHere">民间社区</b>」发帖 · 演示环境，发布接口未接入</div>
+            <input class="field" placeholder="帖子标题" id="npTitle">
+            <textarea class="field" placeholder="正文内容……" id="npBody"></textarea>
+            <button class="btn" id="publish">发布</button>
+          </div>
+
+          <div id="posts"></div>
+        </div>
+
+        <div class="cm__side">
+          <div class="panel side__block">
+            <div class="panel__hd">
+              <div><h2>我的好友</h2><div class="en">CONTACTS</div></div>
+            </div>
+            <div class="side__body" id="friends"></div>
+          </div>
+
+          <div class="panel side__block">
+            <div class="panel__hd">
+              <div><h2>社区说明</h2><div class="en">RULES</div></div>
+            </div>
+            <div class="side__body">
+              <ul class="note">
+                <li><b>民间社区</b>：民俗禁忌、老规矩交流</li>
+                <li><b>个人故事社区</b>：亲身经历分享</li>
+                <li><b>梦境社区</b>：奇怪梦境解读</li>
+                <li><b>求助区</b>：遇到事发帖求助</li>
+                <li><b>已解决区</b>：看别人是怎么被救的</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="panel side__block">
+            <div class="panel__hd">
+              <div><h2>在线成员</h2><div class="en">ONLINE</div></div>
+            </div>
+            <div class="side__body"><div class="online" id="online"></div></div>
+          </div>
+
+          <div class="panel side__block">
+            <div class="panel__hd">
+              <div><h2>夜间值守</h2><div class="en">NIGHT WATCH</div></div>
+            </div>
+            <div class="side__body">
+              <div class="note" style="font-size:10.5px">
+                00:00 — 06:00 为<b>盲域时段</b>，观测者网络通讯延迟升高，
+                提问可能无人应答。请勿在此期间独自前往<b class="mut">无照明</b>区域核实。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- 视图：灵异档案 ---------- -->
+    <section class="view" id="view-archive">
+      <div class="filters" id="filters"></div>
+
+      <div class="panel">
+        <div class="panel__hd">
+          <div>
+            <h2>灵异事件档案</h2>
+            <div class="en">INCIDENT ARCHIVE · CLASSIFIED</div>
+          </div>
+          <div class="spacer"></div>
+          <div class="hint" id="arcCount">共 12 条</div>
+        </div>
+        <div class="panel__bd" style="padding:0">
+          <table class="etable">
+            <thead>
+              <tr>
+                <th style="width:132px">档案编号</th>
+                <th style="width:150px">事件代号</th>
+                <th style="width:60px">等级</th>
+                <th>发生区域</th>
+                <th style="width:96px">状态</th>
+                <th style="width:84px">死亡人数</th>
+                <th style="width:104px">首次上报</th>
+              </tr>
+            </thead>
+            <tbody id="arcBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="footer"><span>点击任意条目查看档案全文</span><span>数据截至 2026-11-01 00:55</span></div>
+    </section>
+
+    <!-- ---------- 视图：驭鬼者档案 ---------- -->
+    <section class="view" id="view-profile">
+      <div class="mapwrap">
+        <div class="panel">
+          <div class="panel__bd profile" id="profileMain"></div>
+        </div>
+
+        <div class="stack">
+          <div class="panel">
+            <div class="panel__hd">
+              <div><h2>观测数据</h2><div class="en">OBSERVATION DATA</div></div>
+            </div>
+            <div class="panel__bd" id="profileSide"></div>
+          </div>
+          <div class="panel">
+            <div class="panel__hd">
+              <div><h2>权限</h2><div class="en">CLEARANCE</div></div>
+            </div>
+            <div class="panel__bd">
+              <div class="note" style="font-size:10.5px">
+                本档案为 <b>A 级</b> 机密，仅限第七分局观测者查阅。
+                未经授权抄录、转述或带出，视同<b class="mut">主动暴露</b>。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <span>灵异复苏 · 观测者网络 · 第七分局</span>
+      <span>本页面为世界观展示用 UI 演示，全部内容虚构</span>
+    </div>
+  </main>
+</div>
+
+<!-- ================= 档案抽屉 ================= -->
+<div class="drawer" id="drawer">
+  <div class="mask" id="drawerMask"></div>
+  <div class="drawer__hd">
+    <div>
+      <h3 id="dTitle">档案</h3>
+      <span class="en" id="dCode">INCIDENT FILE</span>
+    </div>
+    <div class="spacer" style="flex:1"></div>
+    <button class="btn ghost sm" id="dClose">关闭</button>
+  </div>
+  <div class="drawer__bd" id="dBody"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="assets/world-dots.js"></script>
+<script src="assets/globe.js"></script>
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
